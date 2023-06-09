@@ -1,7 +1,7 @@
 version: '3'
 services:
   sonic-agent:
-    image: "sonicorg/sonic-agent-linux:SONIC_VERSION"
+    image: "zhuozhuang/sonic-agent-linux:SONIC_VERSION"
     environment:
       # Change to SONIC_SERVER_HOST and SONIC_SERVER_PORT of server | 改成server的SONIC_SERVER_HOST和SONIC_SERVER_PORT
       - SONIC_SERVER_HOST=192.168.1.1
