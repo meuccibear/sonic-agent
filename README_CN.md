@@ -79,3 +79,6 @@
   license: [BSD License](licenses/LICENSE.WebDriverAgent)
 - Poco-SDK 来自 sonic-sdk-poco fork from [Poco-SDK](https://github.com/AirtestProject/Poco-SDK)
   license: [Apache 2.0 License](licenses/LICENSE.Poco-SDK)
+
+## Mac
+sudo spctl --master-disable
