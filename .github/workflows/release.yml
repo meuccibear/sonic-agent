@@ -98,7 +98,7 @@ jobs:
       - name: adb-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-adb-binary
+          repository: meuccibear/sonic-adb-binary
           latest: true
           fileName: "*"
       - name: adb-unzip
@@ -106,7 +106,7 @@ jobs:
       - name: sas-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-android-supply
+          repository: meuccibear/sonic-android-supply
           latest: true
           fileName: "*"
       - name: sas-untar
@@ -114,7 +114,7 @@ jobs:
       - name: sgm-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-go-mitmproxy
+          repository: meuccibear/sonic-go-mitmproxy
           latest: true
           fileName: "*"
       - name: sgm-untar
@@ -122,7 +122,7 @@ jobs:
       - name: sib-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-ios-bridge
+          repository: meuccibear/sonic-ios-bridge
           latest: true
           fileName: "*"
       - name: sib-untar
@@ -130,7 +130,7 @@ jobs:
       - name: saa-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-android-apk
+          repository: meuccibear/sonic-android-apk
           latest: true
           fileName: "sonic-android-apk.apk"
       - name: saa

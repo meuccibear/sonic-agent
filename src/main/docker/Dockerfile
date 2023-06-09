@@ -1,4 +1,4 @@
-FROM sonicorg/sonic-agent-linux-base:v1.0.2
+FROM zhuozhuang/sonic-agent-linux-base:v1.0.2
 
 ADD /mini /root/mini
 ADD /plugins /root/plugins

@@ -31,7 +31,7 @@ jobs:
       - name: saa-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-android-apk
+          repository: meuccibear/sonic-android-apk
           latest: true
           fileName: "sonic-android-apk.apk"
       - name: saa
@@ -39,7 +39,7 @@ jobs:
       - name: sas-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-android-supply
+          repository: meuccibear/sonic-android-supply
           latest: true
           fileName: "*_linux_x86_64.tar.gz"
       - name: sas
@@ -47,7 +47,7 @@ jobs:
       - name: sgm-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-go-mitmproxy
+          repository: meuccibear/sonic-go-mitmproxy
           latest: true
           fileName: "*_linux_x86_64.tar.gz"
       - name: sgm
@@ -55,7 +55,7 @@ jobs:
       - name: sib-download
         uses: robinraju/release-downloader@v1.4
         with:
-          repository: SonicCloudOrg/sonic-ios-bridge
+          repository: meuccibear/sonic-ios-bridge
           latest: true
           fileName: "*_linux_x86_64.tar.gz"
       - name: sib
@@ -65,4 +65,4 @@ jobs:
       - name: build image
         run: docker build -t zhuozhuang/sonic-agent-linux:${{ steps.previoustag.outputs.tag }} -f src/main/docker/Dockerfile .
       - name: push
-        run: docker push sonicorg/sonic-agent-linux:${{ steps.previoustag.outputs.tag }}
+        run: docker push zhuozhuang/sonic-agent-linux:${{ steps.previoustag.outputs.tag }}
