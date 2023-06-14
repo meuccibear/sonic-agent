@@ -16,8 +16,8 @@ sonic:
 logging:
   file:
     name: logs/sonic-agent.log
-  level:
-    root: DEBUG
+#  level:
+#    root: DEBUG
   logback:
     rollingpolicy:
       clean-history-on-start: true
