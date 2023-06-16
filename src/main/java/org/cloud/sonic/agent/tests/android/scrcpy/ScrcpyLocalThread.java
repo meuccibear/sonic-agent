@@ -21,11 +21,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.android.ddmlib.IDevice;
 import com.android.ddmlib.IShellOutputReceiver;
 import jakarta.websocket.Session;
+import org.cloud.sonic.agent.common.utils.DateUtils;
 import org.cloud.sonic.agent.tests.android.AndroidTestTaskBootThread;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -91,19 +93,24 @@ public class ScrcpyLocalThread extends Thread {
     @Override
     public void run() {
         File scrcpyServerFile = new File("plugins/sonic-android-scrcpy.jar");
+        LocalDateTime startTime = LocalDateTime.now();
         try {
             iDevice.pushFile(scrcpyServerFile.getAbsolutePath(), "/data/local/tmp/sonic-android-scrcpy.jar");
+            log.info("【ScrcpyLocalThread】【pushFile】{}", DateUtils.calculationTimeConsuming(startTime));
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         AtomicBoolean isRetry = new AtomicBoolean(false);
         try {
+            startTime = LocalDateTime.now();
+            LocalDateTime finalStartTime = startTime;
             iDevice.executeShellCommand("CLASSPATH=/data/local/tmp/sonic-android-scrcpy.jar app_process / com.genymobile.scrcpy.Server 1.23 log_level=info max_size=0 max_fps=60 tunnel_forward=true send_frame_meta=false control=false show_touches=false stay_awake=false power_off_on_close=false clipboard_autosync=false",
                     new IShellOutputReceiver() {
                         @Override
                         public void addOutput(byte[] bytes, int i, int i1) {
                             String res = new String(bytes, i, i1);
-                            log.info(res);
+                            log.info("【IShellOutputReceiver】{} res:{}", DateUtils.calculationTimeConsuming(finalStartTime), res);
                             if (res.contains("Device")) {
                                 isFinish.release();
                                 isRetry.set(true);
@@ -129,6 +136,8 @@ public class ScrcpyLocalThread extends Thread {
             log.info("{} scrcpy service stopped.", iDevice.getSerialNumber());
             log.error(e.getMessage());
         }
+
+
     }
 
 }

@@ -71,7 +71,9 @@ public class AndroidMonitorHandler {
     }
 
     public void startMonitor(IDevice iDevice, IMonitorOutputReceiver receiver) {
+        log.info("【startMonitor】【Start】");
         stopMonitor(iDevice);
+        //获取手机应用的安装路径 【耗时1秒】
         String path = AndroidDeviceBridgeTool.executeCommand(iDevice, "pm path org.cloud.sonic.android").trim()
                 .replaceAll("package:", "")
                 .replaceAll("\n", "")
@@ -79,7 +81,7 @@ public class AndroidMonitorHandler {
 
         Thread rotationPro = new Thread(() -> {
             try {
-                //开始启动
+                log.info("【SonicPluginMonitorService】【Start】path:{}", path);
                 iDevice.executeShellCommand(String.format("CLASSPATH=%s exec app_process /system/bin org.cloud.sonic.android.plugin.SonicPluginMonitorService", path)
                         , new MonitorOutputReceiver(iDevice, receiver), 0, TimeUnit.MILLISECONDS);
             } catch (Exception e) {
@@ -90,6 +92,7 @@ public class AndroidMonitorHandler {
         });
         rotationPro.start();
         rotationMap.put(iDevice.getSerialNumber(), rotationPro);
+        log.info("【startMonitor】【End】");
     }
 
     public void stopMonitor(IDevice iDevice) {

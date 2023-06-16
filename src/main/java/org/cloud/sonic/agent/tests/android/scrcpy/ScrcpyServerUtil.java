@@ -46,6 +46,7 @@ public class ScrcpyServerUtil {
             Session session,
             AndroidTestTaskBootThread androidTestTaskBootThread
     ) {
+        logger.info("【ScrcpyServerUtil】【Start】");
         IDevice iDevice = AndroidDeviceBridgeTool.getIDeviceByUdId(udId);
         String key = androidTestTaskBootThread.formatThreadName(ANDROID_TEST_TASK_BOOT_PRE);
         int s;
@@ -77,6 +78,7 @@ public class ScrcpyServerUtil {
         // 启动输出流
         ScrcpyOutputSocketThread scrcpyOutputSocketThread = new ScrcpyOutputSocketThread(scrcpyInputSocketThread, session);
         TaskManager.startChildThread(key, scrcpyInputSocketThread, scrcpyOutputSocketThread);
+        logger.info("【ScrcpyServerUtil】【End】");
         return scrcpyThread; // server线程
     }
 

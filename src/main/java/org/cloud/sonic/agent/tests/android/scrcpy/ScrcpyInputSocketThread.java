@@ -22,6 +22,7 @@ import com.android.ddmlib.IDevice;
 import jakarta.websocket.Session;
 import org.cloud.sonic.agent.bridge.android.AndroidDeviceBridgeTool;
 import org.cloud.sonic.agent.common.maps.ScreenMap;
+import org.cloud.sonic.agent.common.utils.DateUtils;
 import org.cloud.sonic.agent.tests.android.AndroidTestTaskBootThread;
 import org.cloud.sonic.agent.tools.BytesTool;
 import org.cloud.sonic.agent.tools.PortTool;
@@ -32,6 +33,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.concurrent.BlockingQueue;
 
 /**
@@ -89,12 +91,15 @@ public class ScrcpyInputSocketThread extends Thread {
 
     @Override
     public void run() {
+        log.info("【ScrcpyInputSocketThread】【Start】");
         int scrcpyPort = PortTool.getPort();
         AndroidDeviceBridgeTool.forward(iDevice, scrcpyPort, "scrcpy");
         Socket videoSocket = new Socket();
         InputStream inputStream = null;
         try {
             videoSocket.connect(new InetSocketAddress("localhost", scrcpyPort));
+            LocalDateTime startTime = LocalDateTime.now();
+
             inputStream = videoSocket.getInputStream();
             if (videoSocket.isConnected()) {
                 String sizeTotal = AndroidDeviceBridgeTool.getScreenSize(iDevice);
@@ -102,6 +107,7 @@ public class ScrcpyInputSocketThread extends Thread {
                 size.put("msg", "size");
                 size.put("width", sizeTotal.split("x")[0]);
                 size.put("height", sizeTotal.split("x")[1]);
+                log.info("【ScrcpyInputSocketThread】【sendText】{} {}", DateUtils.calculationTimeConsuming(startTime), size.toJSONString());
                 BytesTool.sendText(session, size.toJSONString());
             }
             int readLength;
