@@ -6,5 +6,5 @@
  █▄▄▄▄▄█▀   ██▄▄██   ██   ███   ▄▄██▄▄    ██▄▄▄▄█
   ▀▀▀▀▀      ▀▀▀▀    ▀▀   ▀▀▀   ▀▀▀▀▀▀      ▀▀▀▀
 
-              Author: SonicCloudOrg
+              Author: ZPUTechCloudOrg
          https://github.com/SonicCloudOrg

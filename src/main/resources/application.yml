@@ -2,7 +2,7 @@ spring:
   version: @project.version@
   application:
     name: @project.artifactId@
-    des: "Agent of Sonic Cloud Real Machine Platform"
+    des: "Agent of ZPUTech Cloud Real Machine Platform"
   profiles:
     active: @project.artifactId@
 

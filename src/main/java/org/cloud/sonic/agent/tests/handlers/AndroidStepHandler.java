@@ -1,6 +1,6 @@
 /*
- *   sonic-agent  Agent of Sonic Cloud Real Machine Platform.
- *   Copyright (C) 2022 SonicCloudOrg
+ *   sonic-agent  Agent of ZPUTech Cloud Real Machine Platform.
+ *   Copyright (C) 2022 ZPUTechCloudOrg
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU Affero General Public License as published
@@ -2215,7 +2215,7 @@ public class AndroidStepHandler {
             AndroidDeviceBridgeTool.executeCommand(iDevice, "ime set org.cloud.sonic.android/.keyboard.SonicKeyboard");
         }
         if (!AndroidDeviceBridgeTool.setClipperByKeyboard(iDevice, text)) {
-            handleContext.setE(new SonicRespException("Set text to clipper failed. Please confirm that your Sonic ime is active."));
+            handleContext.setE(new SonicRespException("Set text to clipper failed. Please confirm that your ZPUTech ime is active."));
         }
     }
 

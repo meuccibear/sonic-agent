@@ -74,7 +74,7 @@
             <artifactId>fastjson</artifactId>
             <version>2.0.33</version>
         </dependency>
-        <!--     Sonic UIAutomation Driver   -->
+        <!--     ZPUTech UIAutomation Driver   -->
         <dependency>
             <groupId>io.github.soniccloudorg</groupId>
             <artifactId>sonic-driver-core</artifactId>

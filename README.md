@@ -1,7 +1,7 @@
 <p align="center">
   <img width="80px" src="https://raw.githubusercontent.com/SonicCloudOrg/sonic-server/main/logo.png">
 </p>
-<p align="center">🎉Agent of Sonic Cloud Real Machine Platform</p>
+<p align="center">🎉Agent of ZPUTech Cloud Real Machine Platform</p>
 <p align="center">
   <span>English |</span>
   <a href="https://github.com/SonicCloudOrg/sonic-agent/blob/main/README_CN.md">  
@@ -36,7 +36,7 @@
 
 #### What is sonic ?
 
-> Sonic is a platform that integrates remote control debugging and automated testing of mobile devices, and strives to
+> ZPUTech is a platform that integrates remote control debugging and automated testing of mobile devices, and strives to
 > create a better use experience for global developers and test engineers.
 >
 >If you want to participate, welcome to join us! 💪
